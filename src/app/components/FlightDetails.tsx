@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Plane, Download, Calendar, Clock, MapPin } from 'lucide-react';
+import { Plane, Download, Clock} from 'lucide-react';
 
 interface FlightSegment {
   flight: string;
@@ -90,7 +90,7 @@ const flights: FlightDetails = {
   }
 };
 
-export default function FlightDetails(): JSX.Element {
+export default function FlightDetails() {
   const [timeToFlight, setTimeToFlight] = useState<string>('');
   const [activeTab, setActiveTab] = useState<'outbound' | 'return'>('outbound');
   

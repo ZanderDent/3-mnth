@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Heart, ImageIcon, Ticket, Star, Send, Calendar, Moon } from 'lucide-react';
+import { Heart} from 'lucide-react';
 import NextImage from 'next/image';
 import FlightDetails from './components/FlightDetails';
 import LetterSection from './components/LetterSection';

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Heart, Music, Image, Ticket, Star, Send, Calendar, Moon } from 'lucide-react';
+import { Heart } from 'lucide-react';
 
 export default function Home() {
   // Move state to client side only
@@ -9,7 +9,6 @@ export default function Home() {
   const [password, setPassword] = useState<string>('');
   const [currentSection, setCurrentSection] = useState<string>('welcome');
   const [showMessage, setShowMessage] = useState<boolean>(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
 
   // Sections content
   const sections = {

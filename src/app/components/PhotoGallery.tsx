@@ -113,7 +113,6 @@ export default function PhotoGallery({ onNext }: { onNext: () => void }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isUnlocked, setIsUnlocked] = useState<boolean[]>(new Array(memories.length).fill(false));
   const dragX = useMotionValue(0);
-  const dragProgress = useTransform(dragX, [-200, 200], [1, -1]);
 
   const leftArrowOpacity = useTransform(
     dragX,

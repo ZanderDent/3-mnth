@@ -1,7 +1,7 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { useRef, useState } from 'react';
+import { motion, useScroll, AnimatePresence } from 'framer-motion';
 import NextImage from 'next/image';
 import { Heart } from 'lucide-react';
 
@@ -21,13 +21,6 @@ export default function LetterSection({ onNext }: { onNext: () => void }) {
     "Our journey together has been beautiful, and I promise to stand by your side, supporting and loving you through every moment. You deserve all the happiness in the world, and I'm committed to bringing more joy into your life each day.",
     "Forever yours,\nJustin"
   ];
-
-  const letterY = useTransform(scrollYProgress, [0, 0.2], [100, 0]);
-  const letterScale = useTransform(scrollYProgress, [0, 0.2], [0.8, 1]);
-  const letterRotate = useTransform(scrollYProgress, [0, 0.2], [5, 0]);
-  const birdY = useTransform(scrollYProgress, [0.8, 1], [0, -20]);
-  const birdRotate = useTransform(scrollYProgress, [0.8, 1], [0, -15]);
-  const birdScale = useTransform(scrollYProgress, [0.8, 1], [1, 0.95]);
 
   const birdVariants = {
     initial: {
