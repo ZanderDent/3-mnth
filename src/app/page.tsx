@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import { Heart} from 'lucide-react';
+import React, { useState } from 'react';
+import { Heart } from 'lucide-react';
 import NextImage from 'next/image';
 import FlightDetails from './components/FlightDetails';
 import LetterSection from './components/LetterSection';
@@ -11,7 +11,6 @@ export default function Home() {
   const [isPasswordCorrect, setIsPasswordCorrect] = useState<boolean>(false);
   const [password, setPassword] = useState<string>('');
   const [currentSection, setCurrentSection] = useState<string>('welcome');
-  const [showMessage, setShowMessage] = useState<boolean>(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Story progression
@@ -87,35 +86,17 @@ export default function Home() {
         <div className="space-y-8 text-center animate-fadeIn">
           <h2 className="text-3xl font-bold text-gray-800">Our Next Adventure</h2>
           <FlightDetails />
-          <p className="mt-4 text-gray-600 italic">Can't wait to create more memories with you...</p>
+          <p className="mt-4 text-gray-600 italic">Can&apos;t wait to create more memories with you...</p>
         </div>
       )
     }
   };
-
-  // Add these animations to your globals.css
-  useEffect(() => {
-    const style = document.createElement('style');
-    style.textContent = `
-      @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-      .animate-fadeIn {
-        animation: fadeIn 0.5s ease-out forwards;
-      }
-    `;
-    document.head.appendChild(style);
-    return () => style.remove();
-  }, []);
 
   // Password check
   const handlePasswordSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (password === 'love2025') {
       setIsPasswordCorrect(true);
-      setShowMessage(true);
-      setTimeout(() => setShowMessage(false), 3000);
     }
   };
 

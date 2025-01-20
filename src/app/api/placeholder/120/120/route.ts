@@ -1,11 +1,11 @@
-import { NextResponse } from 'next/server'
+import { NextResponse } from 'next/server';
 
 export async function GET(
   request: Request,
-  { params }: { params: { width: string; height: string } }
+  { params }: { params: Record<string, string> }
 ) {
-  const width = parseInt(params.width)
-  const height = parseInt(params.height)
+  const width = parseInt(params.width, 10);
+  const height = parseInt(params.height, 10);
 
   const svg = `
     <svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg">
@@ -22,12 +22,12 @@ export async function GET(
         ${width}x${height}
       </text>
     </svg>
-  `
+  `;
 
   return new NextResponse(svg, {
     headers: {
       'Content-Type': 'image/svg+xml',
-      'Cache-Control': 'public, max-age=31536000, immutable'
+      'Cache-Control': 'public, max-age=31536000, immutable',
     },
-  })
+  });
 }

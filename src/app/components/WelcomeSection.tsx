@@ -1,14 +1,13 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Heart } from 'lucide-react';
 
-export default function Home() {
-  // Move state to client side only
+export default function WelcomeSection() {
+  // Client-side state
   const [isPasswordCorrect, setIsPasswordCorrect] = useState<boolean>(false);
-  const [password, setPassword] = useState<string>('');
-  const [currentSection, setCurrentSection] = useState<string>('welcome');
-  const [showMessage, setShowMessage] = useState<boolean>(false);
+  const [password] = useState<string>('');
+  const [currentSection] = useState<string>('welcome');
 
   // Sections content
   const sections = {
@@ -20,8 +19,7 @@ export default function Home() {
             Happy Anniversary, My Love
           </h1>
           <p className="text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed">
-            Every moment with you is a gift, and I wanted to create this special space 
-            to celebrate our love and the beautiful journey we're on together.
+            Every moment with you is a gift, and I wanted to create this special space to celebrate our love and the beautiful journey we&apos;re on together.
           </p>
         </div>
       )
@@ -70,8 +68,6 @@ export default function Home() {
     e.preventDefault();
     if (password === 'love2025') {
       setIsPasswordCorrect(true);
-      setShowMessage(true);
-      setTimeout(() => setShowMessage(false), 3000);
     }
   };
 

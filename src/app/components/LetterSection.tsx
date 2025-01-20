@@ -1,19 +1,13 @@
 'use client';
 
-import { useRef, useState } from 'react';
-import { motion, useScroll, AnimatePresence } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import NextImage from 'next/image';
 import { Heart } from 'lucide-react';
 
 export default function LetterSection({ onNext }: { onNext: () => void }) {
-  const containerRef = useRef<HTMLDivElement>(null);
   const [isLetterOpen, setIsLetterOpen] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
-  
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end end"]
-  });
 
   const paragraphs = [
     "My dearest love,",
@@ -58,7 +52,7 @@ export default function LetterSection({ onNext }: { onNext: () => void }) {
   };
 
   return (
-    <div ref={containerRef} className="min-h-[150vh] relative px-4 py-20">
+    <div className="min-h-[150vh] relative px-4 py-20">
       <AnimatePresence>
         {!isLetterOpen && (
           <>
@@ -137,6 +131,8 @@ export default function LetterSection({ onNext }: { onNext: () => void }) {
               {text}
             </motion.p>
           ))}
+
+          <p>Don&apos;t forget to bring your boarding pass.</p>
         </motion.div>
       )}
 
